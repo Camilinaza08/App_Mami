@@ -1,0 +1,59 @@
+### Obtener todos los empleados
+GET http://localhost:3000/api/empleados
+
+### Crear empleado
+POST http://localhost:3000/api/empleados
+Content-Type: application/json
+
+{
+    "legajo": 402370,
+    "nombre": "Camila Linaza",
+    "hrsObligatorias": 8
+}
+
+### Modificar empleado
+PUT  http://localhost:3000/api/empleados/402370
+Content-Type: application/json
+
+{
+    "legajo": 402370,
+    "nombre": "Camila Linaza",
+    "hrsObligatorias": 5
+}
+
+### Eliminar empleado
+DELETE http://localhost:3000/api/empleados/402370
+
+### Buscar horarios
+GET http://localhost:3000/api/horarios/
+
+### Crear horarios
+POST http://localhost:3000/api/horarios
+Content-Type: application/json
+
+{
+    "idEmpleado": 402370,
+    "fecha": "2025-07-19",
+    "ingreso": "08:00",
+    "egreso": "17:30"
+}
+
+### Crear horarios
+PUT http://localhost:3000/api/horarios/6
+Content-Type: application/json
+
+{
+    "idEmpleado": 11122,
+    "fecha": "2025-07-19",
+    "ingreso": "06:00",
+    "egreso": "16:30"
+}
+
+### Eliminar Horarios
+DELETE http://localhost:3000/api/horarios/5
+
+### Buscar por Nombre
+GET http://localhost:3000/api/horarios?nombre=Camila
+
+### Buscar por fecha
+GET http://localhost:3000/api/horarios?fechaHasta=2025-07-20&&fechaDesde=2025-07-18
