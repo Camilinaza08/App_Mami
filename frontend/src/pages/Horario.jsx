@@ -5,6 +5,7 @@ import horariosService from "../services/horarios.service"
 
 const Horario = () =>{
     const [horarios, setHorarios] = useState([])
+    const [totalExtras, setTotalExtras] = useState(0);
     const [filtros, setFiltros] = useState({
         nombre: "",
         fechaDesde: "",
@@ -33,6 +34,11 @@ const Horario = () =>{
     useEffect(()=> {
         cargar()
     },[])
+
+    useEffect(() => {
+  const suma = horarios.reduce((acc, h) => acc + Number(h.extras || 0), 0);
+  setTotalExtras(suma);
+}, [horarios]);
 
     return(
        <div className="container my-4">
@@ -108,6 +114,9 @@ const Horario = () =>{
           })}
         </tbody>
       </table>
+           <div className="mt-3 fw-bold">
+      Total Horas Extras: {totalExtras.toFixed(2)}
+    </div>
     </div>
     )
 }
